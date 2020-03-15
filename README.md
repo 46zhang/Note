@@ -1169,14 +1169,14 @@ mmap的优点：
 场景A：物理内存+swap space: 16G，映射文件30G，使用一个进程进行mmap，成功后映射后持续写入数据  
 场景B：物理内存+swap space: 16G，映射文件15G，使用两个进程进行mmap，成功后映射后持续写入数据  
 
-场景 	|序列 	|映射类型 				     |结果  
---------| --------|-----------------------------------------|
-A 	|1 	|MAP_PRIVATE 				|mmap报错    
-A 	|2 	|MAP_PRIVATE + MAP_NORESERVE 		|mmap成功，在持续写入情况下，遇到OOM Killer   
-A 	|3 	|MAP_SHARED 				|mmap成功，在持续写入正常   
-B 	|4 	|MAP_PRIVATE 				|mmap成功，在持续写入情况下，有一个进程会遇到OOM Killer  
-B 	|5 	|MAP_PRIVATE + MAP_NORESERVE 		|mmap成功，在持续写入情况下，有一个进程会遇到OOM Killer  
-B 	|6 	|MAP_SHARED 				|mmap成功，在持续写入正常  
+|场景 	|序列 	|映射类型 				     |结果|  
+|--------| --------|-----------------------------------------|-----|
+|A 	|1 	|MAP_PRIVATE 				|mmap报错  |    
+|A 	|2 	|MAP_PRIVATE + MAP_NORESERVE 		|mmap成功，在持续写入情况下，遇到OOM Killer|   
+|A 	|3 	|MAP_SHARED 				|mmap成功，在持续写入正常   |
+|B 	|4 	|MAP_PRIVATE 				|mmap成功，在持续写入情况下，有一个进程会遇到OOM Killer  |
+|B 	|5 	|MAP_PRIVATE + MAP_NORESERVE 		|mmap成功，在持续写入情况下，有一个进程会遇到OOM Killer  |
+|B 	|6 	|MAP_SHARED 				|mmap成功，在持续写入正常  |
 
 
 
