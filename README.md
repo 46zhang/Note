@@ -1126,19 +1126,29 @@ Tips:用户态和内核态切换的代价在哪？
 一般的写   
 用户空间(程序调用write)----copy data---->内核空间(查看页缓存)   
 					|----------击中-------->写入内存   
-					|----------没有-------->根据文件innode查看磁盘所在位置---copy data---->磁盘   
+					|----------没有-------->根据文件innode查看磁盘所在位置---copy data---->磁盘  
+
+****
+					
 一般的读
 用户空间(程序调用read)---->内核空间(查看页缓存)    
 					|--------击中------>读取内存数据----copy data-->内核空间------copy data------->用户空间
 					|--------没有------>加载磁盘到内存---缺页终端---->磁盘-------copy data--->内核----copy 											data------->用户空间   
+****
+
 mmap的写  
 用户空间-----直接映射------->内存 
 			|----------击中-------->写入内存   
 			|----------没有-------->根据文件innode查看磁盘所在位置---加载到内存---->内存     
+			
+****
+
 mmap的读
 磁盘空间----直接映射--->用户空间   
 |----------击中-------->读到内存   
 |----------没有-------->根据文件innode查看磁盘所在位置---加载到内存---->内存   
+
+****
 
 
 #### mmap的步骤：  
@@ -1158,13 +1168,17 @@ mmap的优点：
 
 场景A：物理内存+swap space: 16G，映射文件30G，使用一个进程进行mmap，成功后映射后持续写入数据  
 场景B：物理内存+swap space: 16G，映射文件15G，使用两个进程进行mmap，成功后映射后持续写入数据  
-场景 	序列 	映射类型 	结果  
-A 	1 	MAP_PRIVATE 	mmap报错
-A 	2 	MAP_PRIVATE + MAP_NORESERVE 	mmap成功，在持续写入情况下，遇到OOM Killer
-A 	3 	MAP_SHARED 	mmap成功，在持续写入正常
-B 	4 	MAP_PRIVATE 	mmap成功，在持续写入情况下，有一个进程会遇到OOM Killer
-B 	5 	MAP_PRIVATE + MAP_NORESERVE 	mmap成功，在持续写入情况下，有一个进程会遇到OOM Killer
-B 	6 	MAP_SHARED 	mmap成功，在持续写入正常
+
+场景 	|序列 	|映射类型 				     |结果  
+--------| --------|-----------------------------------------|
+A 	|1 	|MAP_PRIVATE 				|mmap报错    
+A 	|2 	|MAP_PRIVATE + MAP_NORESERVE 		|mmap成功，在持续写入情况下，遇到OOM Killer   
+A 	|3 	|MAP_SHARED 				|mmap成功，在持续写入正常   
+B 	|4 	|MAP_PRIVATE 				|mmap成功，在持续写入情况下，有一个进程会遇到OOM Killer  
+B 	|5 	|MAP_PRIVATE + MAP_NORESERVE 		|mmap成功，在持续写入情况下，有一个进程会遇到OOM Killer  
+B 	|6 	|MAP_SHARED 				|mmap成功，在持续写入正常  
+
+
 
 从上述测试可以看出，从现象上看，NORESERVE是绕过mmap的校验，让其可以mmap成功。但其实在RESERVE的情况下(序列4)，从测试结果看，也没有保障。  
 
