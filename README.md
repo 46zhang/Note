@@ -351,7 +351,12 @@ move的作用：
 move的实现：move的实现依赖于**类型萃取**以及**引用折叠**。
 
 ```c++
-
+template<typename T>
+typename std::remove_reference<T>::type&&
+  move(T&& t)
+{
+    return static_cast<typename std::remove_reference<T>::type&&>(t);
+}
 ```
 
 首先我们需要了解一下左值引用以及右值引用，在c++11之前，右值引用仅局限于常引用，但是现在可以使用右值引用，且能对其值进行修改。
@@ -371,7 +376,79 @@ cout << h << endl;      //输出结果 afadf
 move其实就是利用引用折叠，将左值引用跟右值引用都引用折叠为右值引用，然后返回该右值引用。为什么是返回右值引用呢：原因就是减少临时对象的复制构造，对于POD(内置类型)而言，右值引用性能提升不大，但是对于实现了移动语义的类的而言，使用右值引用能够让其调用移动构造函数，性能能够大大提升。
 
 ```c++
+#include<iostream>
+#include<string>
+#include<vector>
+using namespace std;
 
+
+class MyString {
+private:
+	char* _data;
+	size_t   _len;
+	void _init_data(const char *s) {
+		_data = new char[_len + 1];
+		memcpy(_data, s, _len);
+		_data[_len] = '\0';
+	
+	}
+public:
+	MyString() {
+		_data = NULL;
+		_len = 0;
+		std::cout << "consurt data" << this << endl;
+	}
+
+	MyString(const char* p) {
+		_len = strlen(p);
+		_init_data(p);
+		std::cout << "consurt data" << this << endl;
+	}
+
+	MyString(const MyString& str) {
+		_len = str._len;
+		_init_data(str._data);
+		std::cout << "Copy Constructor is called! source: " << str._data << std::endl;
+	}
+
+	MyString( MyString&& str) {
+		_len = str._len;
+		_init_data(str._data);
+		str._len = 0;
+		str._data = NULL;
+		//str.~MyString();
+		std::cout << "Move Constructor is called! source: " << _data<<"  "<< std::endl;
+	}
+
+	MyString& operator=(const MyString& str) {
+		if (this != &str) {
+			_len = str._len;
+			_init_data(str._data);
+		}
+		std::cout << "Copy Assignment is called! source: " << str._data << std::endl;
+		return *this;
+	}
+
+	virtual ~MyString() {
+		if (_data) free(_data);
+		std::cout << "free data " << this << endl;
+	}
+};
+
+void showString(string&& s) {
+	std::cout << s << endl;
+}
+int main() {
+	MyString a;
+	a = MyString("Hello");
+	std::vector<MyString> vec;
+	vec.push_back(MyString("World"));
+	vec.push_back(a);
+
+	
+	getchar();
+	return 0;
+}
 ```
 
 
@@ -979,6 +1056,7 @@ TCP是基于不可靠的网络实现可靠的传输，肯定也会存在掉包�
 
 
 
+
 原文链接：https://blog.csdn.net/q764424567/article/details/78034622     
 #### TCP可靠传输的设计
 1. 超时重传：tcp设计了超时记时器，如果数据没有收到期待的响应则会重复数据包    
@@ -1001,6 +1079,7 @@ TCP是基于不可靠的网络实现可靠的传输，肯定也会存在掉包�
 
 
 
+
 检验和计算过程
 
         TCP首部校验和计算三部分：TCP首部+TCP数据+TCP伪首部。
@@ -1015,6 +1094,7 @@ TCP是基于不可靠的网络实现可靠的传输，肯定也会存在掉包�
         将所有原码相加，高位叠加到低位， 如计算结果的16位中每一位都为1，则正确，否则说明发生错误。  
 
  
+
 
 
 
