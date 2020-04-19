@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{9F49C54A-2912-4282-BE5C-BABE495DFA61}</ProjectGuid>
+    <RootNamespace>pointAtOffer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>D:\GIT_RES\learning_c++\JenseDDL\Debug;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>D:\GIT_RES\learning_c++\JenseDDL\Debug</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>D:\GIT_RES\learning_c++\JenseDDL\Debug;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>D:\GIT_RES\learning_c++\JenseDDL\Debug</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>JenseDDL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>JenseDDL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="1~nNumOf1.cpp" />
+    <ClCompile Include="3SSum.cpp" />
+    <ClCompile Include="add.cpp" />
+    <ClCompile Include="alloc.cpp" />
+    <ClCompile Include="AtomicTest.cpp" />
+    <ClCompile Include="BinaryTree.cpp" />
+    <ClCompile Include="ClassTest.cpp" />
+    <ClCompile Include="complexListClone.cpp" />
+    <ClCompile Include="convertBinarySearchTree.cpp" />
+    <ClCompile Include="CopyTest.cpp" />
+    <ClCompile Include="createBinaryTree.cpp" />
+    <ClCompile Include="cutRope.cpp" />
+    <ClCompile Include="DdlinkTest.cpp" />
+    <ClCompile Include="deleteDuplication.cpp" />
+    <ClCompile Include="digitalAtIndex.cpp" />
+    <ClCompile Include="EtryNodeOfLoop.cpp" />
+    <ClCompile Include="Fibonacci.cpp" />
+    <ClCompile Include="findFirstCommonNode.cpp" />
+    <ClCompile Include="FindGreatSumOfSubArray.cpp" />
+    <ClCompile Include="findKthNodeToTall.cpp" />
+    <ClCompile Include="findMinInRotateArray.cpp" />
+    <ClCompile Include="findNumberTime.cpp" />
+    <ClCompile Include="findNumInSortArray.cpp" />
+    <ClCompile Include="findNumInTwoDimensionalArray.cpp" />
+    <ClCompile Include="FindPath.cpp" />
+    <ClCompile Include="findReaptedNum.cpp" />
+    <ClCompile Include="firstNotRepating.cpp" />
+    <ClCompile Include="getLeastNumbers.cpp" />
+    <ClCompile Include="haspathTest.cpp" />
+    <ClCompile Include="InversePairs.cpp" />
+    <ClCompile Include="isContinue.cpp" />
+    <ClCompile Include="isNumeric.cpp" />
+    <ClCompile Include="isPopOrder.cpp" />
+    <ClCompile Include="isSymmetrical.cpp" />
+    <ClCompile Include="Josephuse.cpp" />
+    <ClCompile Include="KMP字符串匹配.cpp" />
+    <ClCompile Include="KthNodeInBinarySearchTree.cpp" />
+    <ClCompile Include="LamdaTest.cpp" />
+    <ClCompile Include="LinkTest.cpp" />
+    <ClCompile Include="longestSubstringWithoutDuplication.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="maxValueGift.cpp" />
+    <ClCompile Include="maxValurInQueue.cpp" />
+    <ClCompile Include="MemoryTest.cpp" />
+    <ClCompile Include="MergeList.cpp" />
+    <ClCompile Include="mirrorRecursively.cpp" />
+    <ClCompile Include="moreThanHalfNum.cpp" />
+    <ClCompile Include="MoveTest.cpp" />
+    <ClCompile Include="multipy.cpp" />
+    <ClCompile Include="Nim 游戏.cpp" />
+    <ClCompile Include="numOf1.cpp" />
+    <ClCompile Include="permutation.cpp" />
+    <ClCompile Include="power.cpp" />
+    <ClCompile Include="printfMinNum.cpp" />
+    <ClCompile Include="printMatrixClockwisely.cpp" />
+    <ClCompile Include="printOneToMaxOfDigital.cpp" />
+    <ClCompile Include="probility.cpp" />
+    <ClCompile Include="quickSort.cpp" />
+    <ClCompile Include="regMatch.cpp" />
+    <ClCompile Include="replaceBlankSpace.cpp" />
+    <ClCompile Include="reservePrintList.cpp" />
+    <ClCompile Include="reverseList.cpp" />
+    <ClCompile Include="reverseString.cpp" />
+    <ClCompile Include="robotMove.cpp" />
+    <ClCompile Include="sortTest.cpp" />
+    <ClCompile Include="stockMaxVaule.cpp" />
+    <ClCompile Include="streamMedian.cpp" />
+    <ClCompile Include="sumIsS.cpp" />
+    <ClCompile Include="TemplateTest.cpp" />
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="ThreadTest.cpp" />
+    <ClCompile Include="translaNumToString.cpp" />
+    <ClCompile Include="Trie(前缀树).cpp" />
+    <ClCompile Include="twoTreeNodeCommandFather.cpp" />
+    <ClCompile Include="uglyNumber.cpp" />
+    <ClCompile Include="verifySquenceOfBST.cpp" />
+    <ClCompile Include="virtureTest.cpp" />
+    <ClCompile Include="二叉树展开为链表.cpp" />
+    <ClCompile Include="二叉树遍历.cpp" />
+    <ClCompile Include="互为旋转词.cpp" />
+    <ClCompile Include="交点.cpp" />
+    <ClCompile Include="信封嵌套.cpp" />
+    <ClCompile Include="分割等和子集.cpp" />
+    <ClCompile Include="划分为k个相等的子集.cpp" />
+    <ClCompile Include="划分抑或和为0的子集.cpp" />
+    <ClCompile Include="制造字母异位词的最小步骤数.cpp" />
+    <ClCompile Include="单词拆分.cpp" />
+    <ClCompile Include="单词的压缩编码.cpp" />
+    <ClCompile Include="压缩算法.cpp" />
+    <ClCompile Include="反转字符串.cpp" />
+    <ClCompile Include="反转字符串中的单词 III.cpp" />
+    <ClCompile Include="四数相加 II.cpp" />
+    <ClCompile Include="回文子串.cpp" />
+    <ClCompile Include="地图分析.cpp" />
+    <ClCompile Include="基于二叉树的并查集.cpp" />
+    <ClCompile Include="子集.cpp" />
+    <ClCompile Include="字符串的统计字符串.cpp" />
+    <ClCompile Include="字符串的调整.cpp" />
+    <ClCompile Include="字符串转整数.cpp" />
+    <ClCompile Include="将矩阵按对角线排序cpp.cpp" />
+    <ClCompile Include="找最近的小于自身的值.cpp" />
+    <ClCompile Include="括号生成.cpp" />
+    <ClCompile Include="推文计数.cpp" />
+    <ClCompile Include="推特设计.cpp" />
+    <ClCompile Include="数组大小减半.cpp" />
+    <ClCompile Include="数组序号转换.cpp" />
+    <ClCompile Include="方阵中战斗力最弱的 K 行.cpp" />
+    <ClCompile Include="最佳买卖股票时机含冷冻期.cpp" />
+    <ClCompile Include="最长回文字符串.cpp" />
+    <ClCompile Include="机器人路径问题.cpp" />
+    <ClCompile Include="查找字符串.cpp" />
+    <ClCompile Include="检查整数及其两倍数是否存在.cpp" />
+    <ClCompile Include="生产者消费者模式.cpp" />
+    <ClCompile Include="目标和.cpp" />
+    <ClCompile Include="破坏回文串.cpp" />
+    <ClCompile Include="纸牌游戏.cpp" />
+    <ClCompile Include="组合问题.cpp" />
+    <ClCompile Include="败者树.cpp" />
+    <ClCompile Include="跳跃游戏 V.cpp" />
+    <ClCompile Include="连续子集合乘积的最大化.cpp" />
+    <ClCompile Include="零钱兑换.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="jense.h" />
+    <ClInclude Include="SpainLock.h" />
+    <ClInclude Include="TemplateTest.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\JenseDDL\Debug\JenseDDL.dll" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

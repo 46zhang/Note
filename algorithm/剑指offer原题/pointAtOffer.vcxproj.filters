@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\剑指offer原题">
+      <UniqueIdentifier>{8a48a3c9-168f-41a6-9cdc-fb71399fd248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\leecode竞赛">
+      <UniqueIdentifier>{758a6fde-643f-43dd-b90a-2b9db96afb0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\动态规划">
+      <UniqueIdentifier>{6ada9c4c-8c27-46b7-afb9-ee67419f32c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\动态规划\背包问题">
+      <UniqueIdentifier>{4e7f0c27-9055-43f6-a9e5-27388e4dd4fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\动态规划\完全背包问题">
+      <UniqueIdentifier>{b4eee24e-e866-47aa-ae16-00b227b84fd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\动态规划\字符串问题">
+      <UniqueIdentifier>{b974f7f9-53dd-4fed-9c1b-0528c7151d85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\动态规划\股票问题">
+      <UniqueIdentifier>{2dc5250b-7f33-4e79-b440-9c3e6e828d23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\树专题">
+      <UniqueIdentifier>{8f4904fb-7713-4629-98ba-ee13dfc8f9c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\单调栈">
+      <UniqueIdentifier>{674d5381-199a-419a-96d1-f51b656886b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\多线程">
+      <UniqueIdentifier>{59c1302b-56ea-4343-b201-ab658cb7a0ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\c++Test">
+      <UniqueIdentifier>{3b3c48e2-f7d4-4d60-8b63-04013e3df0f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\美团笔试">
+      <UniqueIdentifier>{63709ee9-62e6-4832-8e62-4a0b99bf7289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\并查集">
+      <UniqueIdentifier>{a765818d-7964-4272-bd80-1b9cb6e0873f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\排序算法">
+      <UniqueIdentifier>{4ee7a2d8-b9bb-4ce0-91e6-f28db695bd30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\回溯">
+      <UniqueIdentifier>{af8042f6-6902-4a20-9d5c-0e2581140ffb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\广度与深度优先">
+      <UniqueIdentifier>{417fd60c-5f4d-4ef4-9e00-b40f4259b858}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\动态规划\子序列问题">
+      <UniqueIdentifier>{d6ab51f7-0b15-4adf-a2c8-81efdaaa29d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\双指针">
+      <UniqueIdentifier>{6f04f7d4-ec4b-4145-9017-392db53c714c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\stl">
+      <UniqueIdentifier>{76a76c2d-fe8f-4e3e-8d80-dc6741b51bb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\字符串">
+      <UniqueIdentifier>{d7093e3a-1e63-43db-8ce0-1016fb88e05f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\其他">
+      <UniqueIdentifier>{6b773d89-cdd6-42c1-97f2-49945fd8973b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\系统设计">
+      <UniqueIdentifier>{6ab8f540-6bff-4186-8cdb-8ba1a608643c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="分割等和子集.cpp">
+      <Filter>源文件\动态规划\背包问题</Filter>
+    </ClCompile>
+    <ClCompile Include="连续子集合乘积的最大化.cpp">
+      <Filter>源文件\动态规划\背包问题</Filter>
+    </ClCompile>
+    <ClCompile Include="目标和.cpp">
+      <Filter>源文件\动态规划\背包问题</Filter>
+    </ClCompile>
+    <ClCompile Include="1~nNumOf1.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="verifySquenceOfBST.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="uglyNumber.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="twoTreeNodeCommandFather.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="translaNumToString.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="sumIsS.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="stockMaxVaule.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="streamMedian.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="sortTest.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="robotMove.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="reverseString.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="reverseList.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="replaceBlankSpace.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="reservePrintList.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="probility.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="regMatch.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="printOneToMaxOfDigital.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="printMatrixClockwisely.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="printfMinNum.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="power.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="numOf1.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="permutation.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="Nim 游戏.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="multipy.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="moreThanHalfNum.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="mirrorRecursively.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="MergeList.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="maxValurInQueue.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="maxValueGift.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="longestSubstringWithoutDuplication.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="KthNodeInBinarySearchTree.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="Josephuse.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="isSymmetrical.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="isPopOrder.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="isContinue.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="isNumeric.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="InversePairs.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="haspathTest.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="getLeastNumbers.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="firstNotRepating.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="findReaptedNum.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="FindPath.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="findNumInTwoDimensionalArray.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="findNumInSortArray.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="findNumberTime.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="findMinInRotateArray.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="findKthNodeToTall.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="FindGreatSumOfSubArray.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="findFirstCommonNode.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="Fibonacci.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="EtryNodeOfLoop.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="digitalAtIndex.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="deleteDuplication.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="cutRope.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="createBinaryTree.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="complexListClone.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="convertBinarySearchTree.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryTree.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="add.cpp">
+      <Filter>源文件\剑指offer原题</Filter>
+    </ClCompile>
+    <ClCompile Include="反转字符串.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="反转字符串中的单词 III.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="方阵中战斗力最弱的 K 行.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="检查整数及其两倍数是否存在.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="破坏回文串.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="将矩阵按对角线排序cpp.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="数组序号转换.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="数组大小减半.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="四数相加 II.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="跳跃游戏 V.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="推文计数.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="压缩算法.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="制造字母异位词的最小步骤数.cpp">
+      <Filter>源文件\leecode竞赛</Filter>
+    </ClCompile>
+    <ClCompile Include="零钱兑换.cpp">
+      <Filter>源文件\动态规划\完全背包问题</Filter>
+    </ClCompile>
+    <ClCompile Include="单词拆分.cpp">
+      <Filter>源文件\动态规划\背包问题</Filter>
+    </ClCompile>
+    <ClCompile Include="最佳买卖股票时机含冷冻期.cpp">
+      <Filter>源文件\动态规划\股票问题</Filter>
+    </ClCompile>
+    <ClCompile Include="回文子串.cpp">
+      <Filter>源文件\动态规划\字符串问题</Filter>
+    </ClCompile>
+    <ClCompile Include="最长回文字符串.cpp">
+      <Filter>源文件\动态规划\字符串问题</Filter>
+    </ClCompile>
+    <ClCompile Include="二叉树展开为链表.cpp">
+      <Filter>源文件\树专题</Filter>
+    </ClCompile>
+    <ClCompile Include="Trie(前缀树).cpp">
+      <Filter>源文件\树专题</Filter>
+    </ClCompile>
+    <ClCompile Include="找最近的小于自身的值.cpp">
+      <Filter>源文件\单调栈</Filter>
+    </ClCompile>
+    <ClCompile Include="二叉树遍历.cpp">
+      <Filter>源文件\树专题</Filter>
+    </ClCompile>
+    <ClCompile Include="生产者消费者模式.cpp">
+      <Filter>源文件\多线程</Filter>
+    </ClCompile>
+    <ClCompile Include="virtureTest.cpp">
+      <Filter>源文件\c++Test</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>源文件\美团笔试</Filter>
+    </ClCompile>
+    <ClCompile Include="AtomicTest.cpp">
+      <Filter>源文件\c++Test</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadTest.cpp">
+      <Filter>源文件\c++Test</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryTest.cpp">
+      <Filter>源文件\c++Test</Filter>
+    </ClCompile>
+    <ClCompile Include="基于二叉树的并查集.cpp">
+      <Filter>源文件\并查集</Filter>
+    </ClCompile>
+    <ClCompile Include="败者树.cpp">
+      <Filter>源文件\树专题</Filter>
+    </ClCompile>
+    <ClCompile Include="组合问题.cpp">
+      <Filter>源文件\回溯</Filter>
+    </ClCompile>
+    <ClCompile Include="单词的压缩编码.cpp">
+      <Filter>源文件\树专题</Filter>
+    </ClCompile>
+    <ClCompile Include="地图分析.cpp">
+      <Filter>源文件\广度与深度优先</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassTest.cpp">
+      <Filter>源文件\c++Test</Filter>
+    </ClCompile>
+    <ClCompile Include="alloc.cpp">
+      <Filter>源文件\stl</Filter>
+    </ClCompile>
+    <ClCompile Include="TemplateTest.cpp">
+      <Filter>源文件\c++Test</Filter>
+    </ClCompile>
+    <ClCompile Include="信封嵌套.cpp">
+      <Filter>源文件\动态规划\子序列问题</Filter>
+    </ClCompile>
+    <ClCompile Include="括号生成.cpp">
+      <Filter>源文件\广度与深度优先</Filter>
+    </ClCompile>
+    <ClCompile Include="划分为k个相等的子集.cpp">
+      <Filter>源文件\动态规划</Filter>
+    </ClCompile>
+    <ClCompile Include="划分抑或和为0的子集.cpp">
+      <Filter>源文件\动态规划</Filter>
+    </ClCompile>
+    <ClCompile Include="子集.cpp">
+      <Filter>源文件\回溯</Filter>
+    </ClCompile>
+    <ClCompile Include="quickSort.cpp">
+      <Filter>源文件\排序算法</Filter>
+    </ClCompile>
+    <ClCompile Include="3SSum.cpp">
+      <Filter>源文件\双指针</Filter>
+    </ClCompile>
+    <ClCompile Include="机器人路径问题.cpp">
+      <Filter>源文件\回溯</Filter>
+    </ClCompile>
+    <ClCompile Include="纸牌游戏.cpp">
+      <Filter>源文件\动态规划</Filter>
+    </ClCompile>
+    <ClCompile Include="互为旋转词.cpp">
+      <Filter>源文件\字符串</Filter>
+    </ClCompile>
+    <ClCompile Include="字符串转整数.cpp">
+      <Filter>源文件\字符串</Filter>
+    </ClCompile>
+    <ClCompile Include="LamdaTest.cpp">
+      <Filter>源文件\c++Test</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveTest.cpp">
+      <Filter>源文件\c++Test</Filter>
+    </ClCompile>
+    <ClCompile Include="交点.cpp">
+      <Filter>源文件\其他</Filter>
+    </ClCompile>
+    <ClCompile Include="推特设计.cpp">
+      <Filter>源文件\系统设计</Filter>
+    </ClCompile>
+    <ClCompile Include="字符串的统计字符串.cpp">
+      <Filter>源文件\字符串</Filter>
+    </ClCompile>
+    <ClCompile Include="查找字符串.cpp">
+      <Filter>源文件\字符串</Filter>
+    </ClCompile>
+    <ClCompile Include="字符串的调整.cpp">
+      <Filter>源文件\字符串</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyTest.cpp">
+      <Filter>源文件\c++Test</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkTest.cpp">
+      <Filter>源文件\c++Test</Filter>
+    </ClCompile>
+    <ClCompile Include="DdlinkTest.cpp">
+      <Filter>源文件\c++Test</Filter>
+    </ClCompile>
+    <ClCompile Include="KMP字符串匹配.cpp">
+      <Filter>源文件\字符串</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="jense.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SpainLock.h">
+      <Filter>源文件\c++Test</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateTest.h">
+      <Filter>源文件\c++Test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\JenseDDL\Debug\JenseDDL.dll">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
+</Project>
