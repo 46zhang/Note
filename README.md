@@ -775,7 +775,100 @@ std::cout << ”address of p is:” << n << std::endl;
   4. 强制多态（Coercion Polymorphism，编译期/运行期）：基本类型转换、自定义类型转换
 
 ## Python
+### 关键字参数
+#### 关键字声明
+python的函数值传递可以通过关键字声明，也可以通过参数对齐的方式来进行传递
 
+    def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
+      -----------    ----------     ----------
+        |             |                  |
+        |        Positional or keyword   |
+        |                                - Keyword only
+         -- Positional only
+         
+```python
+
+    def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
+        print(pos1,pos2,pos_or_kwd,kwd1,kwd2)
+        
+    #pos1、pos2参数只能通过参数对齐的方式来传递,而kwd1, kwd2只能通过关键字来传递形参
+    #可以用以下方式进行调用
+    f(1,2,3,kwd1="fasf",kwd2="df")
+```
+#### 解包参数列表
+解包的操作与c++解引用类似，可以理解为把列表变成一个个单独的元素
+```python
+list(range(3, 6))            # normal call with separate arguments
+
+args = [3, 6]
+list(range(*args))            # call with arguments unpacked from a list
+
+#同样的方式，字典可使用 ** 操作符 来提供关键字参数:
+```
+#### lambda表达式
+与c++ java的lambda的用法差不多，其更多实现的细节没去深究
+#### 参数传递
+这里需要注意浅拷贝跟深拷贝的区别，以及python对象类型的区别
+浅拷贝可以看作是对引用的拷贝，例如 A对象拷贝B对象，当A指向的内容做出修改时，B也随着更改，这就是浅拷贝，拷贝数据的引用，而非数据本身
+深拷贝则是会拷贝该对象所指向的数据
+浅拷贝操作
+    使用切片[:]操作  
+    使用工厂函数（如list/dir/set）  
+    使用copy模块中的copy()函数  
+深拷贝操作    
+使用copy.deepcopy()进行深拷贝   
+这里还需要了解一个概念就是python的对象类型，int,str,原子类型,{**list,set,dict**}(容器类型)   
+对于非容器类型没有拷贝的说法，pyhton的数字、字符串都是用的同一对象，原子类型的对象也是没办法拷贝   
+所以参数的值传递对于容易类型是浅拷贝   
+### 数据结构
+list是一个强大的数据结构，支持像C++一样deququ的操作，可以双向进行添加与删除，也可以再任意处插入或者删除   
+python的线性数据结构只有list，没有提供stack,queue,但是我们却可以用list去模拟queue跟stack
+del 语言可以用来删除元素，只通过下标就可以删除该元素  
+set 集合对象也支持像 联合，交集，差集，对称差分等数学运算
+```python
+>>> a = set('abracadabra')
+>>> b = set('alacazam')
+>>> a                                  # unique letters in a
+{'a', 'r', 'b', 'c', 'd'}
+>>> a - b                              # letters in a but not in b
+{'r', 'd', 'b'}
+>>> a | b                              # letters in a or b or both
+{'a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'}
+>>> a & b                              # letters in both a and b
+{'a', 'c'}
+>>> a ^ b                              # letters in a or b but not both
+{'r', 'd', 'b', 'm', 'z', 'l'}
+```
+### 循环的技巧
+通过zip函数可以实现将不同容器的元素组成一个元组
+```python
+>>> questions = ['name', 'quest', 'favorite color']
+>>> answers = ['lancelot', 'the holy grail', 'blue']
+>>> for q, a in zip(questions, answers):
+...     print('What is your {0}?  It is {1}.'.format(q, a))
+...
+What is your name?  It is lancelot.
+What is your quest?  It is the holy grail.
+What is your favorite color?  It is blue.
+```
+zip函数的具体实现如下:
+```python
+def zip(*iterables):
+    # zip('ABCD', 'xy') --> Ax By
+    sentinel = object()
+    #将参数列表中容器的迭代器加入到列表中
+    iterators = [iter(it) for it in iterables]
+    while iterators:
+        result = []
+        #将不同容器的元素，同一迭代位置的元素加入到tuple中
+        for it in iterators:
+            elem = next(it, sentinel)
+            if elem is sentinel:
+                return
+            result.append(elem)
+        #通过yeild生成器来产生可迭代元素
+        yield tuple(result)
+```
 ### 面向切面编程AOP
 
 就是代码只要考虑主要的逻辑,将一些通用的功能性任务交付给其他类去完成，**把和主业务无关的事情，放到代码外面去做。**，例如验证一个用户是否有权限访问这一功能就可以交由一个代理类去完成。
