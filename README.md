@@ -1,5 +1,5 @@
 # Note
-this repository is to record my study
+面试指南，记录着我面经过程所遇到的问题以及总结的知识点，希望能够对大家有所帮助
 ## 📑 目录
 
 * [➕ C/C++](#-cc)
