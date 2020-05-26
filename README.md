@@ -1,8 +1,12 @@
 # Note
+<<<<<<< HEAD
 
 伯明
 
 this repository is to record my study
+=======
+面试指南，记录着我面经过程所遇到的问题以及总结的知识点，希望能够对大家有所帮助
+>>>>>>> origin/master
 ## 📑 目录
 
 * [➕ C/C++](#-cc)
@@ -778,6 +782,193 @@ std::cout << ”address of p is:” << n << std::endl;
   4. 强制多态（Coercion Polymorphism，编译期/运行期）：基本类型转换、自定义类型转换
 
 ## Python
+### 关键字参数
+#### 关键字声明
+python的函数值传递可以通过关键字声明，也可以通过参数对齐的方式来进行传递
+
+    def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
+      -----------    ----------     ----------
+        |             |                  |
+        |        Positional or keyword   |
+        |                                - Keyword only
+         -- Positional only
+         
+```python
+
+    def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
+        print(pos1,pos2,pos_or_kwd,kwd1,kwd2)
+        
+    #pos1、pos2参数只能通过参数对齐的方式来传递,而kwd1, kwd2只能通过关键字来传递形参
+    #可以用以下方式进行调用
+    f(1,2,3,kwd1="fasf",kwd2="df")
+```
+#### 解包参数列表
+解包的操作与c++解引用类似，可以理解为把列表变成一个个单独的元素
+```python
+list(range(3, 6))            # normal call with separate arguments
+
+args = [3, 6]
+list(range(*args))            # call with arguments unpacked from a list
+
+#同样的方式，字典可使用 ** 操作符 来提供关键字参数:
+```
+#### lambda表达式
+与c++ java的lambda的用法差不多，其更多实现的细节没去深究
+#### 参数传递
+这里需要注意浅拷贝跟深拷贝的区别，以及python对象类型的区别
+浅拷贝可以看作是对引用的拷贝，例如 A对象拷贝B对象，当A指向的内容做出修改时，B也随着更改，这就是浅拷贝，拷贝数据的引用，而非数据本身
+深拷贝则是会拷贝该对象所指向的数据
+浅拷贝操作
+    使用切片[:]操作  
+    使用工厂函数（如list/dir/set）  
+    使用copy模块中的copy()函数  
+深拷贝操作    
+使用copy.deepcopy()进行深拷贝   
+这里还需要了解一个概念就是python的对象类型，int,str,原子类型,{**list,set,dict**}(容器类型)   
+对于非容器类型没有拷贝的说法，pyhton的数字、字符串都是用的同一对象，原子类型的对象也是没办法拷贝   
+所以参数的值传递对于容易类型是浅拷贝   
+### 数据结构
+list是一个强大的数据结构，支持像C++一样deququ的操作，可以双向进行添加与删除，也可以再任意处插入或者删除   
+python的线性数据结构只有list，没有提供stack,queue,但是我们却可以用list去模拟queue跟stack
+del 语言可以用来删除元素，只通过下标就可以删除该元素  
+set 集合对象也支持像 联合，交集，差集，对称差分等数学运算
+```python
+>>> a = set('abracadabra')
+>>> b = set('alacazam')
+>>> a                                  # unique letters in a
+{'a', 'r', 'b', 'c', 'd'}
+>>> a - b                              # letters in a but not in b
+{'r', 'd', 'b'}
+>>> a | b                              # letters in a or b or both
+{'a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'}
+>>> a & b                              # letters in both a and b
+{'a', 'c'}
+>>> a ^ b                              # letters in a or b but not both
+{'r', 'd', 'b', 'm', 'z', 'l'}
+```
+### 循环的技巧
+通过zip函数可以实现将不同容器的元素组成一个元组
+```python
+>>> questions = ['name', 'quest', 'favorite color']
+>>> answers = ['lancelot', 'the holy grail', 'blue']
+>>> for q, a in zip(questions, answers):
+...     print('What is your {0}?  It is {1}.'.format(q, a))
+...
+What is your name?  It is lancelot.
+What is your quest?  It is the holy grail.
+What is your favorite color?  It is blue.
+```
+zip函数的具体实现如下:
+```python
+def zip(*iterables):
+    # zip('ABCD', 'xy') --> Ax By
+    sentinel = object()
+    #将参数列表中容器的迭代器加入到列表中
+    iterators = [iter(it) for it in iterables]
+    while iterators:
+        result = []
+        #将不同容器的元素，同一迭代位置的元素加入到tuple中
+        for it in iterators:
+            elem = next(it, sentinel)
+            if elem is sentinel:
+                return
+            result.append(elem)
+        #通过yeild生成器来产生可迭代元素
+        yield tuple(result)
+```
+### 内置库
+#### os
+**sys.addaudithook(hook)**  
+将可调用的 hook 附加到当前解释器的活动的审核钩子列表中。
+
+通过 sys.audit() 函数引发审计事件时，将按照加入钩子的先后顺序调用每个钩子，调用时将带有事件名称和参数元组。首先调用由 PySys_AddAuditHook() 添加的静态钩子，然后调用添加到当前解释器中的钩子。
+
+引发一个 审计事件 sys.addaudithook，没有附带参数。
+
+这里需要理解一下什么是钩子，可以理解为是一种函数监听回调机制
+
+
+  
+**sys._current_frames()**  
+返回一个字典，存放着每个线程的标识符与（调用本函数时）该线程栈顶的帧（当前活动的帧）之间的映射。注意 traceback 模块中的函数可以在给定某一帧的情况下构建调用堆栈。
+
+这对于调试死锁最有用：本函数不需要死锁线程的配合，并且只要这些线程的调用栈保持死锁，它们就是冻结的。在调用本代码来检查栈顶的帧的那一刻，非死锁线程返回的帧可能与该线程当前活动的帧没有任何关系。
+
+这个函数应该只在内部为了一些特定的目的使用。
+
+引发一个 审计事件 sys._current_frames，没有附带参数。
+
+#### base64
+存在一个疑问，就是为什么需要用到base64编码，有什么业务场景？  
+引用知乎的回答：我们知道在计算机中的字节共有256个组合，对应就是ascii码，而ascii码的128～255之间的值是不可见字符。而在网络上交换数据时，比如说从A地传到B地，往往要经过多个路由设备，由于不同的设备对字符的处理方式有一些不同，这样那些不可见字符就有可能被处理错误，这是不利于传输的。所以就先把数据先做一个Base64编码，统统变成可见字符，这样出错的可能性就大降低了。      对证书来说，特别是根证书，一般都是作Base64编码的，因为它要在网上被许多人下载。电子邮件的附件一般也作Base64编码的，因为一个附件数据往往是有不可见字符的。
+        
+        作者：wuxinliulei
+        链接：https://www.zhihu.com/question/36306744/answer/71626823
+        来源：知乎
+        著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+        
+#### json
+需要了解俩个比较重要的函数，json.dump()将dict对象转为json对象，json.load()则是将json对象转化为dict，是dump()的逆过程   
+
+```python
+class Point:
+     def __init__(self, x, y):
+        self.x = x
+        self.y = y
+# Dictionary mapping names to known classes
+classes = {
+    'Point' : Point
+}
+
+#将json对象转为Point对象
+def unserialize_object(d):
+    clsname = d.pop('__classname__', None)
+    if clsname:
+        cls = classes[clsname]
+        obj = cls.__new__(cls) # Make instance without calling __init__
+        for key, value in d.items():
+            setattr(obj, key, value)
+        return obj
+    else:
+        return d
+#用法如下：
+p = Point(2,3)
+s = json.dumps(p, default=serialize_instance)
+#a is a Point object
+a = json.loads(s, object_hook=unserialize_object)
+
+
+```
+
+值得一提的是，python除了json序列化还有pickle可以进行对象的序列化，pickle序列化后的对象对于非python可能是无效的
+    
+JSON 是一个文本序列化格式（它输出 unicode 文本，尽管在大多数时候它会接着以 utf-8 编码），而 pickle 是一个二进制序列化格式；
+
+JSON 是我们可以直观阅读的，而 pickle 不是；
+
+JSON是可互操作的，在Python系统之外广泛使用，而pickle则是Python专用的；
+
+默认情况下，JSON 只能表示 Python 内置类型的子集，不能表示自定义的类；但 pickle 可以表示大量的 Python 数据类型（可以合理使用 Python 的对象内省功能自动地表示大多数类型，复杂情况可以通过实现 specific object APIs 来解决）。
+
+不像pickle，对一个不信任的JSON进行反序列化的操作本身不会造成任意代码执行漏洞。   
+
+### datetime
+
+    其内部类的继承关系如下所示：
+        object
+            timedelta
+            tzinfo
+                timezone
+            time
+            date
+            datetime
+
+timedelta 对象表示两个 date 或者 time 的时间间隔，俩个timedelta对象可以进行算术运算   
+
+date对象用来表示日期   
+
+datetime对象功能比较强大，包含前俩个类的信息   
+
 
 ### 面向切面编程AOP
 
