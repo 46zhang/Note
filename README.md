@@ -2,7 +2,7 @@
 面试指南，记录着我面经过程所遇到的问题以及总结的知识点，希望能够对大家有所帮助
 ## 📑 目录
 
-* [➕ C/C++](#-cc)
+* [➕ C/C++/Python](#-cc)
 * [⚡️ 算法](#️-算法)
 * [💻 操作系统](#-操作系统)
 * [☁️ 计算机网络](#️-计算机网络)
@@ -13,190 +13,6 @@
 
 
 ## ➕ C/C++   
-
-## STL相关
-
-### 智能指针的实现
-````cpp
-#include<iostream>
-#include<mutex>
-
-
-using namespace std;
-
-/*  实现一个线程安全的智能指针 */
-
-
-/* 引用计数基类 */
-class Sp_counter
-{
-private :
-    size_t *_count;
-    std::mutex mt;
-public :
-    Sp_counter()
-    {
-        cout<<"父类构造,分配counter内存"<<endl;
-        _count = new size_t(0);
-    }
-    virtual ~Sp_counter()
-    {
-        if(_count && !(*_count) ){
-            cout<<"父类析构"<<endl;
-            cout<<"[释放counter内存]"<<endl;
-            delete _count;
-            _count = NULL;
-        }
-    }
-    Sp_counter &operator=(Sp_counter &spc)
-    {
-        cout<<"父类重载="<<endl;
-        cout<<"[释放counter内存]"<<endl;
-        delete _count;
-        this->_count = spc._count;
-        return *this;
-    }
-    Sp_counter &GetCounter()
-    {
-        return *this;
-    }
-    size_t Get_Reference()
-    {
-        return *_count;
-    }
-    virtual void Increase()
-    {
-        mt.lock();
-        (*_count)++;
-        //cout<<"_count++:"<<*_count<<endl;
-        mt.unlock();
-    }
-    virtual void Decrease()
-    {
-        mt.lock();
-        (*_count)--;
-        //cout<<"_count--:"<<*_count<<endl;
-        mt.unlock();
-    }
-};
-
-template<typename T>
-class smart_pointer : public Sp_counter
-{
-private :
-    T *_ptr;
-public :
-    smart_pointer(T *ptr = NULL);
-    ~smart_pointer();
-    smart_pointer(smart_pointer<T> &);
-    smart_pointer<T> &operator=(smart_pointer<T> &);
-    T &operator*();
-    T *operator->(void);
-    size_t use_count();
-
-};
-
-
-
-template <typename T>
-smart_pointer<T>::smart_pointer(T *ptr):
-        _ptr(ptr)
-{
-    this->Increase();
-    cout<<"构造完成"<<endl;
-}
-template <typename T>
-smart_pointer<T>::~smart_pointer(){
-    if(this->Get_Reference())
-    {
-        this->Decrease();
-    }
-    else{
-        cout<<"析勾父类"<<endl;
-        delete _ptr;
-        _ptr=NULL;
-    }
-}
-
-template<typename T>
-smart_pointer<T>::smart_pointer(smart_pointer<T> &a) {
-    if(this!=&a)
-    {
-        this->_ptr=a._ptr;
-        this->GetCounter()=a.GetCounter();
-        this->Increase();
-    }
-
-}
-template<typename T>
-smart_pointer<T>& smart_pointer<T>::operator=(smart_pointer<T> &sp) {
-    if(this!=&sp)
-    {
-        //左边引用计数-1，右边引用技术+1
-        this->Decrease();
-        if(this->Get_Reference()==0)
-            this->~smart_pointer();
-    }
-    sp.Increase();
-    this->_ptr=sp._ptr;
-    this->GetCounter()=sp.GetCounter();
-}
-
-template<typename T>
-T& smart_pointer<T>::operator*() {
-    return *_ptr;
-}
-
-template<typename T>
-T* smart_pointer<T>::operator->() {
-    return _ptr;
-}
-
-template<typename T>
-inline size_t smart_pointer<T>::use_count()
-{
-    return this->Get_Reference();
-}
-
-
-int main()
-{
-    int *a = new int(10);
-    int *b = new int(20);
-    
-
-
-    cout<<"===================end main===================="<<endl;
-    return 0;
-}
-````
-代码转载自 https://blog.csdn.net/gt1025814447/article/details/81217324
-### 注意
-1. 智能指针中shared_ptr的实现借助了一个计数器类，这个计数器类必须是对象共享对象，因为多个shared_ptr对象副本都是增减减少同一个引用计数器    
-2. 如果在多线程环境下，引用技术的增加、减少必须是线程安全的，可以用原子操作，这里采用的是加锁，至于原子操作的版本等我研究后再进行更新
-3. 这里采用了一种存在争议的做法，就是手动调用析勾函数，这相当于调用了一次普通的函数，但是在对象正式被析勾时会再调用一次析勾函数，然后释放栈的内存，销毁对象，手动调用析勾不会析勾栈上面的对象，此外，如果对象A是堆上面的对象，系统不会自动调用A的析勾函数，必须用delete A才会调用，只有栈上面的对象会自动调用析勾函数。
-### 手动调用析勾函数
-````cpp
-class aaa
-{
-public:
-    aaa(){p = new char[1024];} //申请堆内存
-    ~aaa(){cout<<"deconstructor"<<endl; delete []p;}
-    void disp(){cout<<"disp"<<endl;}
-private:
-    char *p;
-};
-
-void main()
-{
-aaa a;
-a.~aaa();
-a.disp(); //a is stack object so it will auto desory
-aaa * b=new aaa();
-b->~aaa(); // b is heap object ,will not auto desory
-} 
-````
-在上述的例子中，因为a是栈上的对象，所以它在最后程序退出的时候会调用析勾函数，所以会俩次删除p，造成异常，而b是堆上的对象，堆上的对象不会自动调用析勾函数，所以b不存在问题，但是b对象并没有进行销毁，会造成b的内存泄露。
 
 ##  内存模型
 
@@ -1248,6 +1064,7 @@ TCP是基于不可靠的网络实现可靠的传输，肯定也会存在掉包�
 
 
 
+
 原文链接：https://blog.csdn.net/q764424567/article/details/78034622     
 #### TCP可靠传输的设计
 1. 超时重传：tcp设计了超时记时器，如果数据没有收到期待的响应则会重复数据包    
@@ -1275,6 +1092,7 @@ TCP是基于不可靠的网络实现可靠的传输，肯定也会存在掉包�
 
 
 
+
 检验和计算过程
 
         TCP首部校验和计算三部分：TCP首部+TCP数据+TCP伪首部。
@@ -1289,6 +1107,7 @@ TCP是基于不可靠的网络实现可靠的传输，肯定也会存在掉包�
         将所有原码相加，高位叠加到低位， 如计算结果的16位中每一位都为1，则正确，否则说明发生错误。  
 
  
+
 
 
 
